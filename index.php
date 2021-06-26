@@ -26,7 +26,7 @@ include_once './Config/database.php';
         <nav class="navbar navbar-dark bg-dark static-top">
             <div class="container">
                 <img src="img/logo.jpeg" alt="" width=120 height=60>
-                <a class="btn btn-primary" href="#signup">Cadastrar</a>
+                <a class="btn btn-primary" href="View/cadastro.php">Cadastrar</a>
                 <a class="btn btn-success" href="#signup">Login</a>
             </div>
         </nav>
@@ -55,7 +55,7 @@ include_once './Config/database.php';
             <div class="card-body pt-0">
                 <div class="table-responsive">
                     <?php
-                    $rs = $pdo->prepare("SELECT * FROM vagas WHERE status = 1");
+                    $rs = $pdo->prepare("SELECT * FROM vagas WHERE status = 1 order by data_cadastro DESC");
                     $rs->execute();
                     ?>
 
@@ -65,7 +65,7 @@ include_once './Config/database.php';
                                 <th class="text-center no-sort">Código</th>
                                 <th class="text-center">Título</th>
                                 <th class="text-center">Descrição</th>
-                                <th class="text-center">Data do Cadastro</th>
+                                <th class="text-center">Data</th>
                                 <th class="text-center pr-2">Empresa</th>
                                 <th class="text-center no-sort">Validade</th>
                                 <th class="text-center no-sort">Status</th>

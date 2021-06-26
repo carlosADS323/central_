@@ -10,7 +10,7 @@
 </head>
 <body>
 
-    <form class="form-horizontal container-fluid">
+    <form class="form-horizontal container-fluid" action="script.php" method="post">
         <fieldset>
             <div class="panel panel-primary">
                 <div class="panel-heading">Central de Serviços</div>
@@ -41,8 +41,8 @@
 
                     <!-- Text input-->
                     <div class="form-group">
-                        <label class="col-md-2 control-label" for="Nome">CPF <h11>*</h11></label>  
-                        <div class="col-md-3">
+                        <label class="col-md-2 control-label" for="Nome">CPF ou CNPJ<h11>*</h11></label>  
+                        <div class="col-md-2">
                             <input id="cpf" name="cpf" placeholder="Apenas números" class="form-control input-md" required="" type="text" maxlength="11" pattern="[0-9]+$">
                         </div>
 
@@ -82,10 +82,23 @@
                         <div class="col-md-2">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
-                                <input id="prependedtext" name="prependedtext" class="form-control" placeholder="XX XXXXX-XXXX" type="text" maxlength="13"  pattern="\[0-9]{2}\ [0-9]{4,6}-[0-9]{3,4}$"
+                                <input id="prependedtext" name="tel" class="form-control" placeholder="XX XXXXX-XXXX" type="text" maxlength="13"  pattern="\[0-9]{2}\ [0-9]{4,6}-[0-9]{3,4}$"
                                        OnKeyPress="formatar('## #####-####', this)">
                             </div>
                         </div>
+
+                        <div class="col-md-3">
+                            <div class="input-group">
+
+                                    <span class="input-group-addon">Status</span>
+                                    <select required id="status" name="status" class="form-control">
+                                        <option value="Ativo">Ativo</option>
+                                        <option value="Inativo">Inativo</option>
+                                    </select>
+                                </div>
+
+                        </div>
+
                     </div> 
 
                     <!-- Prepended text-->
@@ -140,14 +153,48 @@
                         <div class="col-md-2">
                             <div class="input-group">
                                 <span class="input-group-addon">Estado</span>
-                                <input id="estado" name="estado" class="form-control" placeholder="" required="" type="text">
+
+                                <select required id="estado" name="estado" class="form-control" required="">
+                                    <option value="CE">Ceará</option>
+                                    <option value="AC">Acre</option>
+                                    <option value="AL">Alagoas</option>
+                                    <option value="AP">Amapá</option>
+                                    <option value="AM">Amazonas</option>
+                                    <option value="BA">Bahia</option>
+                                    <option value="DF">Distrito Federal</option>
+                                    <option value="ES">Espírito Santo</option>
+                                    <option value="GO">Goiás</option>
+                                    <option value="MA">Maranhão</option>
+                                    <option value="MT">Mato Grosso</option>
+                                    <option value="MS">Mato Grosso do Sul</option>
+                                    <option value="MG">Minas Gerais</option>
+                                    <option value="PA">Pará</option>
+                                    <option value="PB">Paraíba</option>
+                                    <option value="PR">Paraná</option>
+                                    <option value="PE">Pernambuco</option>
+                                    <option value="PI">Piauí</option>
+                                    <option value="RJ">Rio de Janeiro</option>
+                                    <option value="RN">Rio Grande do Norte</option>
+                                    <option value="RS">Rio Grande do Sul</option>
+                                    <option value="RO">Rondônia</option>
+                                    <option value="RR">Roraima</option>
+                                    <option value="SC">Santa Catarina</option>
+                                    <option value="SE">Sergipe</option>
+                                    <option value="SP">São Paulo</option>
+                                    <option value="TO">Tocantins</option>
+                                </select>
                             </div>
 
                         </div>
+
+
                     </div>
+
 
                     <!-- Select Basic -->
                     <div class="form-group">
+
+                        <!-- Select Basic -->
                         <label class="col-md-2 control-label" for="Estado Civil">Estado Civil <h11>*</h11></label>
                         <div class="col-md-2">
                             <select required id="Estado Civil" name="Estado Civil" class="form-control">
@@ -157,16 +204,11 @@
                                 <option value="Divorciado(a)">Divorciado(a)</option>
                                 <option value="Viuvo(a)">Viuvo(a)</option>
                             </select>
-                        </div>     
-                    </div>
+                        </div> 
 
+                        <label class="col-md-1 control-label" for="selectbasic">Escolaridade <h11>*</h11></label>
 
-                    <!-- Select Basic -->
-                    <div class="form-group">
-
-                        <label class="col-md-2 control-label" for="selectbasic">Escolaridade <h11>*</h11></label>
-
-                        <div class="col-md-3">
+                        <div class="col-md-2">
                             <select required id="escolaridade" name="escolaridade" class="form-control">
                                 <option value=""></option>
                                 <option value="Analfabeto">Analfabeto</option>
