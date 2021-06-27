@@ -17,69 +17,43 @@ $estado = $_POST['estado'];
 $estado_civil = $_POST['estado_civil'];
 $escolaridade = $_POST['escolaridade'];
 $profissao = $_POST['profissao'];
-$status = $_POST['status'];
 $senha = $_POST['senha'];
 
-try {
-    $stmt = $pdo->prepare("INSERT INTO usuarios("
-            . "nome"
-            . "cpf"
-            . "data_nasc"
-            . "sexo"
-            . "tel"
-            . "tel2"
-            . "email"
-            . "rua"
-            . "num"
-            . "bairro"
-            . "cidade"
-            . "estado"
-            . "estado_civil"
-            . "escolaridade"
-            . "profissao"
-            . "status"
-            . "senha)"
-            . "VALUES ("
-            . ":nome"
-            . ":cpf"
-            . ":data_nasc"
-            . ":sexo"
-            . ":tel"
-            . ":tel2"
-            . ":email"
-            . ":rua"
-            . ":num"
-            . ":bairro:"
-            . ":cidade"
-            . ":estado"
-            . ":estado_civil"
-            . ":escolaridade"
-            . ":profissao"
-            . ":status:"
-            . "senha )");
-    $stmt->execute(array(
-        ':nome' => $nome,
-        ':cpf' => $cpf,
-        ':data_nasc' => $data_nasc,
-        ':sexo' => $sexo,
-        ':tel' => $tel,
-        ':tel2' => $tel2,
-        ':email' => $email,
-        ':rua' => $rua,
-        ':num' => $num,
-        ':bairro' => $bairro,
-        ':cidade' => $cidade,
-        ':estado' => $estado,
-        ':estado_civil' => $estado_civil,
-        ':escolaridade' => $escolaridade,
-        ':profissao' => $profissao,
-        ':status' => $status,
-        ':senha' => $senha
-    ));
+$sql = "INSERT INTO usuarios (nome, cpf, data_nasc, sexo,  tel, tel2, email, rua, num, bairro, cidade, estado, estado_civil, escolaridade, profissao, senha) VALUES (:nome, :cpf, :data_nasc, :sexo, :tel, :tel2, :email, :rua, :num, :bairro, :cidade, :estado, :estado_civil, :escolaridade, :profissao, :senha)";
 
-    echo $stmt->rowCount();
-} catch (PDOException $e) {
-    echo 'Error: ' . $e->getMessage();
+$stmt = $pdo->prepare($sql);
+$stmt->bindParam(':nome', $nome);
+$stmt->bindParam(':cpf', $cpf);
+$stmt->bindParam(':data_nasc', $data_nasc);
+$stmt->bindParam(':sexo', $sexo);
+$stmt->bindParam(':tel', $tel);
+$stmt->bindParam(':tel2', $tel2);
+$stmt->bindParam(':email', $email);
+$stmt->bindParam(':rua', $rua);
+$stmt->bindParam(':num', $num);
+$stmt->bindParam(':bairro', $bairro);
+$stmt->bindParam(':cidade', $cidade);
+$stmt->bindParam(':estado', $estado);
+$stmt->bindParam(':estado_civil', $estado_civil);
+$stmt->bindParam(':escolaridade', $escolaridade);
+$stmt->bindParam(':profissao', $profissao);
+$stmt->bindParam(':senha', $senha);
+
+if ($stmt->execute()) {
+    echo "<script> alert('Usuário Inserido com Sucesso!'); window.location.href = '../views/cadastro.php';</script>";
+}else{
+    echo "Erro ao cadastrar";
+    print_r($stmt->errorInfo());
 }
+
+
+
+
+
+
+
+
+
+ 
             
 

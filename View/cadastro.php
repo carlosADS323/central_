@@ -10,7 +10,7 @@
 </head>
 <body>
 
-    <form class="form-horizontal container-fluid" action="script.php" method="post">
+    <form class="form-horizontal container-fluid" action="../Controller/Usuarios.php" method="post">
         <fieldset>
             <div class="panel panel-primary">
                 <div class="panel-heading">Central de Serviços</div>
@@ -33,22 +33,22 @@
 
                     <!-- Text input-->
                     <div class="form-group">
-                        <label class="col-md-2 control-label" for="Nome">Nome <h11>*</h11></label>  
+                        <label class="col-md-2 control-label" for="nome">Nome <h11>*</h11></label>  
                         <div class="col-md-10">
-                            <input id="Nome" name="Nome" placeholder="" class="form-control input-md" required="" type="text">
+                            <input id="nome" name="nome" placeholder="" class="form-control input-md" required="" type="text">
                         </div>
                     </div>
 
                     <!-- Text input-->
                     <div class="form-group">
-                        <label class="col-md-2 control-label" for="Nome">CPF ou CNPJ<h11>*</h11></label>  
+                        <label class="col-md-2 control-label" for="cpf">CPF ou CNPJ<h11>*</h11></label>  
                         <div class="col-md-2">
                             <input id="cpf" name="cpf" placeholder="Apenas números" class="form-control input-md" required="" type="text" maxlength="11" pattern="[0-9]+$">
                         </div>
 
-                        <label class="col-md-1 control-label" for="Nome">Nascimento<h11>*</h11></label>  
+                        <label class="col-md-1 control-label" for="data_nasc">Nascimento<h11>*</h11></label>  
                         <div class="col-md-3">
-                            <input id="dtnasc" name="dtnasc" placeholder="DD/MM/AAAA" class="form-control input-md" required="" type="text" maxlength="10" OnKeyPress="formatar('##/##/####', this)" onBlur="showhide()">
+                            <input id="data_nasc" name="data_nasc" placeholder="DD/MM/AAAA" class="form-control input-md" required="" type="date" maxlength="10" OnKeyPress="formatar('##/##/####', this)" onBlur="showhide()">
                         </div>
 
                         <!-- Multiple Radios (inline) -->
@@ -56,7 +56,7 @@
                         <div class="form-group">
                             <label class="col-md-1 control-label" for="sexo">Sexo <h11>*</h11></label>
                             <div class="col-md-2">
-                                <select required id="Estado Civil" name="sexo" class="form-control">
+                                <select required id="sexo" name="sexo" class="form-control">
                                     <option value=""></option>
                                     <option value="Masculino">Masculino</option>
                                     <option value="Feminino">Feminino</option>
@@ -69,46 +69,56 @@
 
                     <!-- Prepended text-->
                     <div class="form-group">
-                        <label class="col-md-2 control-label" for="prependedtext">Telefone <h11>*</h11></label>
-                        <div class="col-md-2">
+                        <label class="col-md-2 control-label" for="tel">Telefone <h11>*</h11></label>
+                        <div class="col-md-3">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
-                                <input id="prependedtext" name="prependedtext" class="form-control" placeholder="XX XXXXX-XXXX" required="" type="text" maxlength="13" pattern="\[0-9]{2}\ [0-9]{4,6}-[0-9]{3,4}$"
+                                <input id="tel" name="tel" class="form-control" placeholder="XX XXXXX-XXXX" required="" type="text" maxlength="13" pattern="\[0-9]{2}\ [0-9]{4,6}-[0-9]{3,4}$"
                                        OnKeyPress="formatar('## #####-####', this)">
                             </div>
                         </div>
 
                         <label class="col-md-1 control-label" for="prependedtext">Telefone</label>
-                        <div class="col-md-2">
+                        <div class="col-md-3">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
-                                <input id="prependedtext" name="tel" class="form-control" placeholder="XX XXXXX-XXXX" type="text" maxlength="13"  pattern="\[0-9]{2}\ [0-9]{4,6}-[0-9]{3,4}$"
+                                <input id="tel2" name="tel2" class="form-control" placeholder="XX XXXXX-XXXX" type="text" maxlength="13"  pattern="\[0-9]{2}\ [0-9]{4,6}-[0-9]{3,4}$"
                                        OnKeyPress="formatar('## #####-####', this)">
                             </div>
                         </div>
-
+                        
+                        
+                        
+                        <!--
                         <div class="col-md-3">
                             <div class="input-group">
-
-                                    <span class="input-group-addon">Status</span>
-                                    <select required id="status" name="status" class="form-control">
-                                        <option value="Ativo">Ativo</option>
-                                        <option value="Inativo">Inativo</option>
+                                    <span class="input-group-addon">Situação</span>
+                                    <select required id="situacao" name="situacao" class="form-control">
+                                        <option value="ativo">Ativo</option>
+                                        <option value="inativo">Inativo</option>
                                     </select>
                                 </div>
 
                         </div>
+                        -->
+                        
 
                     </div> 
 
                     <!-- Prepended text-->
                     <div class="form-group">
-                        <label class="col-md-2 control-label" for="prependedtext">Email <h11>*</h11></label>
+                        <label class="col-md-2 control-label" for="email">Email <h11>*</h11></label>
                         <div class="col-md-5">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-                                <input id="prependedtext" name="prependedtext" class="form-control" placeholder="email@email.com" required="" type="text" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" >
+                                <input id="email" name="email" class="form-control" placeholder="email@email.com" required="" type="text" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" >
                             </div>
+                        </div>
+                        
+                        <label class="col-md-1 control-label" for="senha">Senha<h11>*</h11></label>  
+                        <div class="col-md-4">
+                            <input id="senha" name="senha" type="password" placeholder="" class="form-control input-md" required="">
+
                         </div>
                     </div>
 
@@ -126,7 +136,7 @@
                         <div class="col-md-2">
                             <div class="input-group">
                                 <span class="input-group-addon">Nº <h11>*</h11></span>
-                                <input id="numero" name="numero" class="form-control" placeholder="" required=""  type="text">
+                                <input id="num" name="num" class="form-control" placeholder="" required=""  type="text">
                             </div>
 
                         </div>
@@ -195,9 +205,9 @@
                     <div class="form-group">
 
                         <!-- Select Basic -->
-                        <label class="col-md-2 control-label" for="Estado Civil">Estado Civil <h11>*</h11></label>
+                        <label class="col-md-2 control-label" for="estado_civil">Estado Civil <h11>*</h11></label>
                         <div class="col-md-2">
-                            <select required id="Estado Civil" name="Estado Civil" class="form-control">
+                            <select required id="estado_civil" name="estado_civil" class="form-control">
                                 <option value=""></option>
                                 <option value="Solteiro(a)">Solteiro(a)</option>
                                 <option value="Casado(a)">Casado(a)</option>
