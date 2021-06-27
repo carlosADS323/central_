@@ -26,9 +26,41 @@ include_once './Config/database.php';
         <nav class="navbar navbar-dark bg-dark static-top">
             <div class="container">
                 <img src="img/logo.jpeg" alt="" width=120 height=60>
-                <a class="btn btn-primary" href="View/cadastro.php">Cadastrar</a>
-                <a class="btn btn-success" href="#signup">Login</a>
+                <?php
+                if (empty($_SESSION['email'])) {
+                    echo '<a class="btn btn-primary" href="View/cadastro.php">Cadastrar</a>';
+                } else {
+                    
+                }
+                ?>
+
+                <?php
+                if (empty($_SESSION['email'])) {
+                    echo '<a class="btn btn-success" href="View/login.php">Login</a>';
+                } else {
+                    
+                }
+                ?> 
             </div>
+            <?php
+            if (empty($_SESSION['email'])) {
+                
+            } else {
+                
+            }
+            ?> 
+
+            <?php
+            if (empty($_SESSION['email'])) {
+                
+            } else {
+                echo '<a class="btn btn-dark" href="Config/sair.php">Sair</a>';
+                session_destroy();
+                header("Location: ./index.php");
+            }
+            ?> 
+
+
         </nav>
         <!-- Masthead-->
         <header class="masthead">
@@ -68,7 +100,7 @@ include_once './Config/database.php';
                                 <th class="text-center">Data</th>
                                 <th class="text-center pr-2">Empresa</th>
                                 <th class="text-center no-sort">Validade</th>
-                                <th class="text-center no-sort">Status</th>
+                                <th class="text-center no-sort"></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -81,10 +113,10 @@ include_once './Config/database.php';
                                     <td><?php echo $vagas['empresa']; ?></td>
                                     <td><?php echo $vagas['validade']; ?></td>
                                     <td><?php
-                                        if ($vagas['status'] == 1) {
-                                            echo "Ativo";
+                                        if (empty($_SESSION['email'])) {
+                                            echo '<a class="btn btn-primary" href="#signup">Logar</a>';
                                         } else {
-                                            echo 'Inativo';
+                                            echo '<a class="btn btn-success" href="#signup">Acessar</a>';
                                         }
                                         ?></td>
                                 </tr>  
@@ -187,42 +219,20 @@ include_once './Config/database.php';
         <section class="call-to-action text-white text-center" id="signup">
             <div class="container position-relative">
                 <div class="row justify-content-center">
+                    
+                    <form method="post" action="Config/validaLogin.php">
+                        <input type="text" name="email" placeholder="E-mail">
+                        <input type="password" name="senha" placeholder="Senha">
+                        <input type="submit" value="Entrar" name="acao">
+                    </form>
+
 
                 </div>
             </div>
         </section>
-        <!-- Footer-->
-        <footer class="footer bg-light">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-6 h-100 text-center text-lg-start my-auto">
-                        <ul class="list-inline mb-2">
-                            <li class="list-inline-item"><a href="#!">About</a></li>
-                            <li class="list-inline-item">⋅</li>
-                            <li class="list-inline-item"><a href="#!">Contact</a></li>
-                            <li class="list-inline-item">⋅</li>
-                            <li class="list-inline-item"><a href="#!">Terms of Use</a></li>
-                            <li class="list-inline-item">⋅</li>
-                            <li class="list-inline-item"><a href="#!">Privacy Policy</a></li>
-                        </ul>
-                        <p class="text-muted small mb-4 mb-lg-0">&copy; Your Website 2021. All Rights Reserved.</p>
-                    </div>
-                    <div class="col-lg-6 h-100 text-center text-lg-end my-auto">
-                        <ul class="list-inline mb-0">
-                            <li class="list-inline-item me-4">
-                                <a href="#!"><i class="bi-facebook fs-3"></i></a>
-                            </li>
-                            <li class="list-inline-item me-4">
-                                <a href="#!"><i class="bi-twitter fs-3"></i></a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href="#!"><i class="bi-instagram fs-3"></i></a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </footer>
+<?php
+include_once './View/footer.php';
+?>
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
