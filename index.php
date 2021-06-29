@@ -54,7 +54,7 @@ include_once './Config/database.php';
             if (empty($_SESSION['email'])) {
                 
             } else {
-                echo '<a class="btn btn-dark" href="Config/sair.php">Sair</a>';
+                echo '<a class="btn btn-sair" href="Config/sair.php">Sair</a>';
                 session_destroy();
                 header("Location: ./index.php");
             }
@@ -69,7 +69,7 @@ include_once './Config/database.php';
                     <div class="col-xl-10">
                         <div class="text-center text-white">
                             <!-- Page heading-->
-                            <img src="img/logo.jpeg" alt="" width=240 height=120>
+                            <img src="img/logo.jpeg" class="logocentral" alt="" width=240 height=120>
                             <h3 class="mb-5">Dê agora mesmo um upgrade na sua vida profissional!</h3>
                             <!-- Signup form-->
 
@@ -132,56 +132,29 @@ include_once './Config/database.php';
 
 
 
-        <!-- Icons Grid-->
-        <section class="features-icons bg-light text-center">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-4">
-                        <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
-                            <div class="features-icons-icon d-flex"><i class="bi-window m-auto text-primary"></i></div>
-                            <h3>Fully Responsive</h3>
-                            <p class="lead mb-0">This theme will look great on any device, no matter the size!</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
-                            <div class="features-icons-icon d-flex"><i class="bi-layers m-auto text-primary"></i></div>
-                            <h3>Bootstrap 5 Ready</h3>
-                            <p class="lead mb-0">Featuring the latest build of the new Bootstrap 5 framework!</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="features-icons-item mx-auto mb-0 mb-lg-3">
-                            <div class="features-icons-icon d-flex"><i class="bi-terminal m-auto text-primary"></i></div>
-                            <h3>Easy to Use</h3>
-                            <p class="lead mb-0">Ready to use with your own content, or customize the source files!</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+  
         <!-- Image Showcases-->
         <section class="showcase">
             <div class="container-fluid p-0">
                 <div class="row g-0">
-                    <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('assets/img/bg-showcase-1.jpg')"></div>
+                    <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('assets/img/home.jpg')"></div>
                     <div class="col-lg-6 order-lg-1 my-auto showcase-text">
-                        <h2>Fully Responsive Design</h2>
-                        <p class="lead mb-0">When you use a theme created by Start Bootstrap, you know that the theme will look great on any device, whether it's a phone, tablet, or desktop the page will behave responsively!</p>
+                        <h2>Engrenagem Funcional</h2>
+                        <p class="lead mb-0">Aqui na central você tem a melhor ferramenta em mãos para divulgar o seu serviço!</p>
                     </div>
                 </div>
                 <div class="row g-0">
-                    <div class="col-lg-6 text-white showcase-img" style="background-image: url('assets/img/bg-showcase-2.jpg')"></div>
+                    <div class="col-lg-6 text-white showcase-img" style="background-image: url('assets/img/home2.jpg')"></div>
                     <div class="col-lg-6 my-auto showcase-text">
-                        <h2>Updated For Bootstrap 5</h2>
-                        <p class="lead mb-0">Newly improved, and full of great utility classes, Bootstrap 5 is leading the way in mobile responsive web development! All of the themes on Start Bootstrap are now using Bootstrap 5!</p>
+                        <h2>Comunicação</h2>
+                        <p class="lead mb-0">Nos serviços apresentados pelos usuarios da Central são utilizados meios de comunicação através de aplicativos como Telegram ou Whatsapp!</p>
                     </div>
                 </div>
                 <div class="row g-0">
-                    <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('assets/img/bg-showcase-3.jpg')"></div>
+                    <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('assets/img/home3.png')"></div>
                     <div class="col-lg-6 order-lg-1 my-auto showcase-text">
-                        <h2>Easy to Use & Customize</h2>
-                        <p class="lead mb-0">Landing Page is just HTML and CSS with a splash of SCSS for users who demand some deeper customization options. Out of the box, just add your content and images, and your new landing page will be ready to go!</p>
+                        <h2>Tempo Valioso</h2>
+                        <p class="lead mb-0">Aqui você faz sua consultoria, agendamento ou vende seu serviço economizando tempo e dinheiro com anuncios!</p>
                     </div>
                 </div>
             </div>
@@ -189,47 +162,33 @@ include_once './Config/database.php';
         <!-- Testimonials-->
         <section class="testimonials text-center bg-light">
             <div class="container">
-                <h2 class="mb-5">What people are saying...</h2>
+                <h2 class="mb-5">O que as pessoas estão dizendo...</h2>
                 <div class="row">
                     <div class="col-lg-4">
                         <div class="testimonial-item mx-auto mb-5 mb-lg-0">
                             <img class="img-fluid rounded-circle mb-3" src="assets/img/testimonials-1.jpg" alt="..." />
                             <h5>Margaret E.</h5>
-                            <p class="font-weight-light mb-0">"This is fantastic! Thanks so much guys!"</p>
+                            <p class="font-weight-light mb-0">"Isto é fantástico, um site otimizador de tempo!"</p>
                         </div>
                     </div>
                     <div class="col-lg-4">
                         <div class="testimonial-item mx-auto mb-5 mb-lg-0">
                             <img class="img-fluid rounded-circle mb-3" src="assets/img/testimonials-2.jpg" alt="..." />
                             <h5>Fred S.</h5>
-                            <p class="font-weight-light mb-0">"Bootstrap is amazing. I've been using it to create lots of super nice landing pages."</p>
+                            <p class="font-weight-light mb-0">"Na Central cosegui expandir meus negocios, realmente muito bom!"</p>
                         </div>
                     </div>
                     <div class="col-lg-4">
                         <div class="testimonial-item mx-auto mb-5 mb-lg-0">
                             <img class="img-fluid rounded-circle mb-3" src="assets/img/testimonials-3.jpg" alt="..." />
                             <h5>Sarah W.</h5>
-                            <p class="font-weight-light mb-0">"Thanks so much for making these free resources available to us!"</p>
+                            <p class="font-weight-light mb-0">"Muito obrigado por disponibilizar esses recursos gratuitos para nós!"</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-        <!-- Call to Action-->
-        <section class="call-to-action text-white text-center" id="signup">
-            <div class="container position-relative">
-                <div class="row justify-content-center">
-                    
-                    <form method="post" action="Config/validaLogin.php">
-                        <input type="text" name="email" placeholder="E-mail">
-                        <input type="password" name="senha" placeholder="Senha">
-                        <input type="submit" value="Entrar" name="acao">
-                    </form>
-
-
-                </div>
-            </div>
-        </section>
+    
 <?php
 include_once './View/footer.php';
 ?>

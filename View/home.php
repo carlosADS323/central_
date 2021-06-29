@@ -42,7 +42,7 @@ include_once '../Config/database.php';
                     <div class="col-xl-10">
                         <div class="text-center text-white">
                             <!-- Page heading-->
-                            <img src="../img/logo.jpeg" alt="" width=240 height=120>
+                            <img src="../img/logo.jpeg" class="logocentral" alt="" width=240 height=120>
                             <h3 class="mb-5">Dê agora mesmo um upgrade na sua vida profissional!</h3>
                             <!-- Signup form-->
 
