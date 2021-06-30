@@ -42,7 +42,7 @@ include_once '../Config/database.php';
                     <div class="col-xl-10">
                         <div class="text-center text-white">
                             <!-- Page heading-->
-                            <img src="../img/logo.jpeg" alt="" width=240 height=120>
+                            <img src="../img/logo.jpeg" class="logocentral" alt="" width=240 height=120>
                             <h3 class="mb-5">Dê agora mesmo um upgrade na sua vida profissional!</h3>
                             <!-- Signup form-->
 
@@ -54,38 +54,35 @@ include_once '../Config/database.php';
         <!-- Tabela -->
         <div class="container">
             </br>
-            <h3>Últimas vagas</h3>
+            <h3>Cadastros Gerais</h3>
             </br>
 
-            <div class="card-body pt-0">
+           <div class="card-body pt-0">
                 <div class="table-responsive">
                     <?php
-                    $rs = $pdo->prepare("SELECT * FROM vagas WHERE status = 1 order by data_cadastro DESC");
+                  
+                        $rs = $pdo->prepare("SELECT * FROM usuarios WHERE id > 0 order by id");
                     $rs->execute();
+                    
+              
                     ?>
 
-                    <table class="table table-bordered dataTable" width="100%" cellspacing="0">
+                    <table class="table table-bordered dataTable" width="50%" cellspacing="0">
                         <thead>
                             <tr>
-                                <th class="text-center no-sort">Código</th>
-                                <th class="text-center">Título</th>
-                                <th class="text-center">Descrição</th>
-                                <th class="text-center">Data</th>
-                                <th class="text-center pr-2">Empresa</th>
-                                <th class="text-center no-sort">Validade</th>
-                                <th class="text-center no-sort"></th>
+                               <th class="text-center pr-2">Profissão</th>
+                                <th class="text-center pr-2">E-mail</th>
+                                <th class="text-center no-sort">Nome do Usuario</th>
+                                <th class="text-center no-sort">Telefone</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php while ($vagas = $rs->fetch(PDO::FETCH_ASSOC)) { ?>       
                                 <tr>
-                                    <td><?php echo $vagas['id']; ?></td>
-                                    <td><?php echo $vagas['titulo']; ?></td>
-                                    <td><?php echo $vagas['descricao']; ?></td>
-                                    <td><?php echo $vagas['data_cadastro']; ?></td>
-                                    <td><?php echo $vagas['empresa']; ?></td>
-                                    <td><?php echo $vagas['validade']; ?></td>
-                                    <td><a class="btn btn-success" href="#signup">Acessar</a></td>
+                                    <td><?php echo $vagas['profissao']; ?></td> 
+                                    <td><?php echo $vagas['email']; ?></td> 
+                                    <td><?php echo $vagas['nome']; ?></td>
+                                    <td><?php echo $vagas['tel']; ?></td>                           
                                 </tr>  
 
                             <?php } ?>
@@ -99,89 +96,35 @@ include_once '../Config/database.php';
 
 
 
-        <!-- Icons Grid-->
-        <section class="features-icons bg-light text-center">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-4">
-                        <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
-                            <div class="features-icons-icon d-flex"><i class="bi-window m-auto text-primary"></i></div>
-                            <h3>Fully Responsive</h3>
-                            <p class="lead mb-0">This theme will look great on any device, no matter the size!</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
-                            <div class="features-icons-icon d-flex"><i class="bi-layers m-auto text-primary"></i></div>
-                            <h3>Bootstrap 5 Ready</h3>
-                            <p class="lead mb-0">Featuring the latest build of the new Bootstrap 5 framework!</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="features-icons-item mx-auto mb-0 mb-lg-3">
-                            <div class="features-icons-icon d-flex"><i class="bi-terminal m-auto text-primary"></i></div>
-                            <h3>Easy to Use</h3>
-                            <p class="lead mb-0">Ready to use with your own content, or customize the source files!</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+       
         <!-- Image Showcases-->
         <section class="showcase">
             <div class="container-fluid p-0">
                 <div class="row g-0">
-                    <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('assets/img/bg-showcase-1.jpg')"></div>
+                    <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('../assets/img/home.jpg')"></div>
                     <div class="col-lg-6 order-lg-1 my-auto showcase-text">
-                        <h2>Fully Responsive Design</h2>
-                        <p class="lead mb-0">When you use a theme created by Start Bootstrap, you know that the theme will look great on any device, whether it's a phone, tablet, or desktop the page will behave responsively!</p>
+                        <h2>Engrenagem Funcional</h2>
+                        <p class="lead mb-0">Aqui na central você tem a melhor ferramenta em mãos para divulgar o seu serviço!</p>
                     </div>
                 </div>
                 <div class="row g-0">
-                    <div class="col-lg-6 text-white showcase-img" style="background-image: url('assets/img/bg-showcase-2.jpg')"></div>
+                    <div class="col-lg-6 text-white showcase-img" style="background-image: url('../assets/img/home2.jpg')"></div>
                     <div class="col-lg-6 my-auto showcase-text">
-                        <h2>Updated For Bootstrap 5</h2>
-                        <p class="lead mb-0">Newly improved, and full of great utility classes, Bootstrap 5 is leading the way in mobile responsive web development! All of the themes on Start Bootstrap are now using Bootstrap 5!</p>
+                        <h2>Comunicação</h2>
+                        <p class="lead mb-0">Nos serviços apresentados pelos usuarios da Central são utilizados meios de comunicação através de aplicativos como Telegram ou Whatsapp!</p>
                     </div>
                 </div>
                 <div class="row g-0">
-                    <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('assets/img/bg-showcase-3.jpg')"></div>
+                    <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('../assets/img/home3.png')"></div>
                     <div class="col-lg-6 order-lg-1 my-auto showcase-text">
-                        <h2>Easy to Use & Customize</h2>
-                        <p class="lead mb-0">Landing Page is just HTML and CSS with a splash of SCSS for users who demand some deeper customization options. Out of the box, just add your content and images, and your new landing page will be ready to go!</p>
+                        <h2>Tempo Valioso</h2>
+                        <p class="lead mb-0">Aqui você faz sua consultoria, agendamento ou vende seu serviço economizando tempo e dinheiro com anuncios!</p>
                     </div>
                 </div>
             </div>
         </section>
         <!-- Testimonials-->
-        <section class="testimonials text-center bg-light">
-            <div class="container">
-                <h2 class="mb-5">What people are saying...</h2>
-                <div class="row">
-                    <div class="col-lg-4">
-                        <div class="testimonial-item mx-auto mb-5 mb-lg-0">
-                            <img class="img-fluid rounded-circle mb-3" src="assets/img/testimonials-1.jpg" alt="..." />
-                            <h5>Margaret E.</h5>
-                            <p class="font-weight-light mb-0">"This is fantastic! Thanks so much guys!"</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="testimonial-item mx-auto mb-5 mb-lg-0">
-                            <img class="img-fluid rounded-circle mb-3" src="assets/img/testimonials-2.jpg" alt="..." />
-                            <h5>Fred S.</h5>
-                            <p class="font-weight-light mb-0">"Bootstrap is amazing. I've been using it to create lots of super nice landing pages."</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="testimonial-item mx-auto mb-5 mb-lg-0">
-                            <img class="img-fluid rounded-circle mb-3" src="assets/img/testimonials-3.jpg" alt="..." />
-                            <h5>Sarah W.</h5>
-                            <p class="font-weight-light mb-0">"Thanks so much for making these free resources available to us!"</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+       
         <!-- Call to Action-->
         <section class="call-to-action text-white text-center" id="signup">
             <div class="container position-relative">
