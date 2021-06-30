@@ -113,11 +113,6 @@ include_once './Config/database.php';
             </div>
 
         </div>
-
-
-
-
-
         <!-- Image Showcases-->
         <section class="showcase">
             <div class="container-fluid p-0">
@@ -144,9 +139,6 @@ include_once './Config/database.php';
                 </div>
             </div>
         </section>
-        <!-- Testimonials-->
-
-
         <?php
         include_once './View/footer.php';
         ?>
